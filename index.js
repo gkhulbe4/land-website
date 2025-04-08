@@ -91,6 +91,7 @@ app.post(
     res // LOGIN
   ) => {
     const { username, password } = req.body;
+    // console.log(username);
     const admin = await Admin.findOne({ username, password });
     if (admin) {
       const token = jwt.sign({ username }, SECRET, { expiresIn: "1h" });
